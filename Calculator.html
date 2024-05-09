@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Loan Calculator</title>
+    <style>
+        body {
+            margin: 0px;
+            background-image: url("https://th.bing.com/th/id/R.1c38667858d778c71646dd47715acad9?rik=PHYzKstcbfL2og&riu=http%3a%2f%2fwww.bhmpics.com%2fwallpapers%2fcity_in_pink_sky-1600x900.jpg&ehk=rAkNm290QypT9Jw66RF6mNPyCM4WQ6QGDp31oC77aF8%3d&risl=&pid=ImgRaw&r=0") ;
+            background-size: cover ;
+        }
+       
+        h1 {
+            font-size: 21px;
+            margin-top: 20px;
+        }
+        p{
+            text-decoration-style: solid;
+            font-size: 20px;
+        }
+        .calculator {
+            width: 400px;
+            height: 350px;
+            background-color: pink;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            padding: 20px 0px 0px 100px;
+            border-radius: 50px;
+            color: blue;
+        }
+        input {
+            padding: 7px;
+            width: 75%;
+            margin-top: 7px;
+        }
+        #total {
+            color:black;
+            font-size: 21px;
+        }
+    </style>
+    <script >
+        //interest = (amount * rate * 0.01)/months;
+        //total = ((amount/months) + interest);
+    function Calculate() {
+ const amount = document.querySelector("#amount").value;
+ const rate = document.querySelector("#rate").value;
+ const months = document.querySelector("#months").value;
+ const interest = (amount * (rate * 0.01)) / months;
+ const total = ((amount / months) + interest).toFixed(2);
+ document.querySelector("#total")
+    .innerHTML = "EMI : (₹)" + total;
+}
+    </script>
+</head>
+<body>
+    <div class="calculator">
+        <h1>Home Loan Calculator</h1>
+
+        <p>Amount (₹) : <input id="amount" type="number" onchange="Calculate()">
+        </p>
+
+        <p>Interest Rate : <input id="rate" type="number" onchange="Calculate()">
+        </p>
+
+        <p>Months to Pay :<input id="months" type="number" onchange="Calculate()">
+        </p>
+
+        <h2 id="total"></h2>
+      
+    </div>
+</body>
+</html>
+
